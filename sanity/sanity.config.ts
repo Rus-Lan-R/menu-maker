@@ -1,8 +1,9 @@
 import {defineConfig, isDev} from 'sanity'
 import {visionTool} from '@sanity/vision'
 import {structureTool} from 'sanity/structure'
-import {schemaTypes} from './schemaTypes'
+import {schemaTypes} from './schemas/index'
 import {getStartedPlugin} from './plugins/sanity-plugin-tutorial'
+import {DATASET, PROJECT_ID} from './sanity.api'
 
 const devOnlyPlugins = [getStartedPlugin()]
 
@@ -10,8 +11,8 @@ export default defineConfig({
   name: 'default',
   title: 'menu-maker',
 
-  projectId: '6noakjia',
-  dataset: 'production',
+  projectId: PROJECT_ID,
+  dataset: DATASET,
 
   plugins: [structureTool(), visionTool(), ...(isDev ? devOnlyPlugins : [])],
 
@@ -19,4 +20,3 @@ export default defineConfig({
     types: schemaTypes,
   },
 })
-
