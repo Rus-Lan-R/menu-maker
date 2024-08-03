@@ -1,0 +1,60 @@
+@use "sass:math";
+
+@function remove-unit($value) {
+  @return math.div($value, ($value * 0 + 1));
+}
+
+@function round-to($value, $to: 2) {
+  @return math.div(math.round($value * math.pow(10, $to)), math.pow(10, $to));
+}
+
+@function rem($px, $round-to: 2) {
+  @return round-to(
+      math.div(remove-unit($px), remove-unit($base-font-size)),
+      $round-to
+    ) * 1rem;
+}
+
+@mixin variable-from-vw($css-name, $number, $from-window-width) {
+  --#{$css-name}: #{round-to(
+      math.div(remove-unit($number), $from-window-width) * 100,
+      3
+    ) * 1vw};
+
+  --#{$css-name}: calc(
+    #{round-to(math.div($number, $from-window-width) * 100, 3)} * var(--true-window-width, #{math.div(
+            $from-window-width,
+            100
+          )})
+  );
+}
+
+@mixin resizable-variable(
+  $css-name,
+  $number,
+  $min-window-width,
+  $max-window-width
+) {
+  --#{$css-name}: #{$number};
+
+  @media (max-width: #{remove-unit($min-window-width) - 1 * 1px}) {
+    @include variable-from-vw(
+      base-font-size,
+      $base-font-size,
+      remove-unit($min-window-width)
+    );
+  }
+
+  @media (min-width: #{remove-unit($max-window-width) + 1 * 1px}) {
+    @include variable-from-vw(
+      base-font-size,
+      $base-font-size,
+      remove-unit($max-window-width)
+    );
+  }
+}
+
+@mixin no-space-after-child-image() {
+  display: flex;
+  flex-direction: column;
+}

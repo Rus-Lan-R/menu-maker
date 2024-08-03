@@ -1,0 +1,13 @@
+// Init SCSS
+@import "./scss-only/index";
+
+// Reset default styles
+@import "./reset";
+
+// CSS Variables
+@import "./variables";
+
+// Project styles
+@import "./fonts";
+@import "./default";
+@import "./scrollbar";

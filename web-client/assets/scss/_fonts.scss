@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "Mabry Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/MabryPro-Regular.eot");
+  src: local("Mabry Pro Regular"), local("Mabry-Pro-Regular"),
+    url("/fonts/MabryPro-Regular.woff2") format("woff2"),
+    url("/fonts/MabryPro-Regular.woff") format("woff"),
+    url("/fonts/MabryPro-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Mabry Pro";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/MabryPro-Medium.eot");
+  src: local("Mabry Pro Medium"), local("Mabry-Pro-Medium"),
+    url("/fonts/MabryPro-Medium.woff2") format("woff2"),
+    url("/fonts/MabryPro-Medium.woff") format("woff"),
+    url("/fonts/MabryPro-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Mabry Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/MabryPro-Bold.eot");
+  src: local("Mabry Pro Bold"), local("Mabry-Pro-Bold"),
+    url("/fonts/MabryPro-Bold.woff2") format("woff2"),
+    url("/fonts/MabryPro-Bold.woff") format("woff"),
+    url("/fonts/MabryPro-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Inter Regular"), local("Inter-Regular"),
+    url("/fonts/inter-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local("Inter Medium"), local("Inter-Medium"),
+    url("/fonts/inter-500.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Inter Bold"), local("Inter-Bold"),
+    url("/fonts/inter-700.woff2") format("woff2");
+}

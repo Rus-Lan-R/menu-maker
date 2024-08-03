@@ -1,0 +1,38 @@
+// Do not use for styling elements.
+// Technical variables.
+:root {
+  @include resizable-variable(base-font-size, $base-font-size, 375, 2000);
+}
+
+// Use for styling elements.
+:root {
+  // Font color
+  --font-color-white: #fff;
+  --font-color-orange: #f75f2d;
+  --font-color-black: #000;
+  --font-color-beige: #f0ede4;
+  --font-color-gray: #7c7c7c;
+  --font-color-green: #c8f24f;
+  --font-color-blue: #1940a7;
+
+  --font-color-default: var(--font-color-black);
+
+  // Fonts
+  --font-mabry-pro: "Mabry Pro", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-default: var(--font-mabry-pro);
+
+  // Background color
+  --background-color-black: #000;
+  --background-color-orange: #f75f2d;
+  --background-color-white: #fff;
+  --background-color-green: #c8f24f;
+  --background-color-blue: #1940a7;
+  --border-color-gray: #bbbbbb;
+
+  --background-color-beige: #f0ede4;
+
+  // Ornament
+  --ornament-color-border: #bbb;
+  --ornament-color-orange: #4f110b;
+}
