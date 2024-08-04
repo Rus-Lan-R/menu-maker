@@ -140,7 +140,7 @@ export const getStaticProps: GetStaticProps<{
       customModules,
     );
 
-    const meta = mask(globalMeta, pageMetaStruct);
+    const meta = mask(globalMeta ?? {}, pageMetaStruct);
     return { props: { page, meta }, revalidate };
   } catch (error) {
     console.error("FATAL ERROR, SHOW 404 FOR", slug, error);

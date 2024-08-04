@@ -1,0 +1,18 @@
+.inlineLink {
+  color: inherit;
+  position: relative;
+  border-bottom: rem(1px) solid currentColor;
+  color: inherit;
+  transition: color 0.3s;
+
+  &_noUnderline {
+    border-bottom: none;
+  }
+
+  @media (hover: hover) {
+    &:hover,
+    *:hover {
+      color: var(--font-color-orange);
+    }
+  }
+}

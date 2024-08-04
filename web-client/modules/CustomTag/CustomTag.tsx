@@ -24,7 +24,7 @@ export default function CustomTag(props: {
     });
 
     return output;
-  }, props.tag.attributes);
+  }, [...(props.tag.attributes || [])]);
 
   if (props.children) {
     return <Tag {...attributes}>{props.children}</Tag>;

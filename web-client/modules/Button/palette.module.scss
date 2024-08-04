@@ -1,0 +1,73 @@
+.dark {
+  --button-color: #fff;
+  --button-color-active: #fff;
+  --button-background-color: #000;
+  --animation-color-active: #f75f2d;
+
+  &:hover {
+    --button-color: #f75f2d;
+  }
+}
+
+.white {
+  --button-color: #000;
+  --button-color-active: #f75f2d;
+  --button-background-color: #fff;
+  --animation-color-active: #f75f2d;
+  --animation-height-active: #{rem(2px)};
+
+  &:hover {
+    --button-color: #f75f2d;
+  }
+}
+
+.orange {
+  --button-color: #fff;
+  --button-color-active: #fff;
+  --button-background-color: #f75f2d;
+  --animation-color-active: #000;
+
+  &:hover {
+    --button-color: #000;
+  }
+}
+
+[data-theme="dark"] .orange {
+  --animation-color-active: #f75f2d;
+}
+
+.big {
+  --button-min-height: #{rem(53px)};
+  --button-padding: #{rem(18px) rem(36px)};
+}
+
+.small {
+  --button-min-height: #{rem(34px)};
+  --button-padding: #{rem(9px) rem(22px)};
+  --button-font-size: #{rem(14px)};
+}
+
+.transparentGray {
+  --button-color: #000;
+  --button-color-active: #fff;
+  --button-background-color: transparent;
+  --animation-color-active: #f75f2d;
+  --button-border-color: #bbbbbb;
+  --button-border-color-active: #f75f2d;
+  &:hover {
+    --button-color: #f75f2d;
+  }
+}
+
+.disabled {
+  --button-color: #fff;
+  --button-color-active: #fff;
+  --button-background-color: #7c7c7c;
+  --animation-color-active: #7c7c7c;
+  --button-border-color: #7c7c7c;
+  --button-border-color-active: #7c7c7c;
+
+  &:hover {
+    --button-color: #fff;
+  }
+}
