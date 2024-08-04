@@ -12,8 +12,6 @@ import {
 import Default from "@/layouts/Default";
 import { imageStruct, sanityData } from "@/lib/module/freeModule";
 import { FreeModuleListFromServer } from "@/lib/module/freeModuleList";
-import sanity, { sanityImage } from "@/lib/sanity";
-
 import {
   customModulesType,
   unwrapCustomModules,
@@ -24,6 +22,11 @@ import { CustomTagStruct } from "@/modules/CustomTag/module";
 import CustomTag from "@/modules/CustomTag/CustomTag";
 import valueOnError from "@/lib/valueOnError";
 import { GlobalData, globalData } from "@/components/GlobalData/GlobalData";
+import {
+  getSanityClient,
+  SANITY_API_READ_TOKEN,
+  sanityImage,
+} from "@/sanity/sanity";
 
 const pagesQuery = `*[_type == "page"] { slug }`;
 
@@ -41,7 +44,7 @@ type PageResponse = {
 
 export const getStaticPaths: GetStaticPaths<PageResponse> = async () => {
   const pages = await valueOnError(
-    async () => mask(await sanity.fetch(pagesQuery), response),
+    async () => mask(await getSanityClient().fetch(pagesQuery), response),
     () => [],
   )();
 
@@ -119,6 +122,9 @@ export const getStaticProps: GetStaticProps<{
     slug = `/${slug}`;
   }
 
+  const sanity = getSanityClient(
+    context.draftMode ? SANITY_API_READ_TOKEN : undefined,
+  );
   const metaFetch = sanity.fetch(globalMetaQuery);
 
   const [pageFromServer, customModulesFromServer, globalMeta] =
@@ -141,7 +147,15 @@ export const getStaticProps: GetStaticProps<{
     );
 
     const meta = mask(globalMeta ?? {}, pageMetaStruct);
-    return { props: { page, meta }, revalidate };
+    return {
+      props: {
+        page,
+        meta,
+        draftMode: !!context.draftMode,
+        token: !!context.draftMode ? SANITY_API_READ_TOKEN : "",
+      },
+      revalidate,
+    };
   } catch (error) {
     console.error("FATAL ERROR, SHOW 404 FOR", slug, error);
 
@@ -178,6 +192,8 @@ function useImageFromSanity(image: Infer<typeof imageStruct> | undefined) {
 export default function Page(props: {
   page: PageType | string | undefined;
   meta: MetaType | undefined;
+  draftMode?: boolean;
+  token?: string;
 }) {
   const ogImage = useImageFromSanity(
     (typeof props.page === "object" ? props.page.ogImage : undefined) ||

@@ -10,6 +10,7 @@ import styles from "./Button.module.scss";
 import clsx from "clsx";
 import Link from "next/link";
 import useOuterClick from "@/hooks/useOuterClick";
+import { createDataAttribute } from "@sanity/visual-editing";
 
 export { palette };
 
@@ -42,6 +43,12 @@ export default function Button({
     isClicked && styles.button_clicked,
     element.disabled && palette.disabled,
   );
+
+  // const attr = createDataAttribute({
+  //   id: documentId,
+  //   type: documentType,
+  //   path: fieldPath,
+  // });
 
   return (
     <Element

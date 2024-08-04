@@ -2,6 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ["page.tsx", "page.ts"],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
+    ],
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,

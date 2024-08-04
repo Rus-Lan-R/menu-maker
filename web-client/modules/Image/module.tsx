@@ -8,7 +8,6 @@ import {
   boolean,
   string,
 } from "superstruct";
-import { sanityImage } from "@/lib/sanity";
 import { nonNullable } from "@/lib/nonNullable";
 import Img from "@/components/Img/Img";
 import {
@@ -19,6 +18,7 @@ import {
 } from "@/components/Img/SrcSet";
 import { ImageUrlBuilder } from "@sanity/image-url/lib/types/builder";
 import { toNumber } from "@/lib/toNumber";
+import { sanityImage } from "@/sanity/sanity";
 
 export const schema = object({
   image: imageStruct,

@@ -22,7 +22,7 @@ export const API_VERSION = process.env.SANITY_STUDIO_API_VERSION || '2023-06-21'
 
 // This is the document id used for the preview secret that's stored in your dataset.
 // The secret protects against unauthorized access to your draft content and have a lifetime of 60 minutes, to protect against bruteforcing.
-export const previewSecretId: `${string}.${string}` = 'preview.secret'
+export const PREVIEW_URL = process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3000'
 
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {
